@@ -1,9 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const InputElement = () => {
+  const random_boolean = Math.random() >= 0.5;
   const [inputText, setInputText] = useState("");
   const [historyList, setHistoryList] = useState([]);
-  return (
+
+  const [isLoading, setIsloading] = useState(random_boolean === true);
+
+  useEffect(() => {
+    const timer = setTimeout(function () {
+      setIsloading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  });
+
+  return isLoading ? (
+    "Loading...."
+  ) : (
     <div>
       <input
         placeholder="Enter Some Text"
