@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const ImageTogglerOnScroll = ({ primaryImg, secondaryImg }) => {
+const ImageToggleOnScroll = ({ primaryImg, secondaryImg }) => {
   const imageRef = useRef(null);
 
   const [isLoading, setIsLoading] = useState(true);
@@ -42,4 +42,4 @@ const ImageTogglerOnScroll = ({ primaryImg, secondaryImg }) => {
   );
 };
 
-export default ImageTogglerOnScroll;
+export default ImageToggleOnScroll;
