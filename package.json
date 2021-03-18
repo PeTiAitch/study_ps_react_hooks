@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "json-server": "json-server --watch db.json --port 4000 --delay 500"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +19,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-toastify": "^7.0.3"
+  },
+  "devDependencies": {
+    "json-server": "^0.16.3"
   }
 }
