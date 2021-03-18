@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { ConfigContext } from "./App";
 
 const SignMeUp = ({ signupCallback }) => {
   useEffect(() => {
-    console.log(`SignMeUp:useEffect called`);
+    //console.log(`SignMeUp:useEffect called`);
   });
 
   const [email, setEmail] = useState();
@@ -55,7 +55,6 @@ const SignMeUp = ({ signupCallback }) => {
             placeholder="Enter Email"
             type="email"
             name="email"
-            required
             required
           />
           &nbsp;
