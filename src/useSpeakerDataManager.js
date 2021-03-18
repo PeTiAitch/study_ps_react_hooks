@@ -24,7 +24,14 @@ const useSpeakerDataManager = () => {
     };
   }, []);
 
-  return { isLoading, speakerList, dispatch };
+  function toggleSpeakerFavorite(speakerRec) {
+    dispatch({
+      type: speakerRec.favorite ? "unfavorite" : "favorite",
+      id: speakerRec.id,
+    });
+  }
+
+  return { isLoading, speakerList, toggleSpeakerFavorite };
 };
 
 export default useSpeakerDataManager;
