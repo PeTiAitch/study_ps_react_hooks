@@ -4,7 +4,6 @@ import { Header } from "../src/Header";
 import { Menu } from "../src/Menu";
 import SpeakerDetail from "./SpeakerDetail";
 import { ConfigContext } from "./App";
-import useSpeakerDataManager from "./useSpeakerDataManager";
 import { GlobalContext } from "./GlobalState";
 
 const Speakers = ({}) => {

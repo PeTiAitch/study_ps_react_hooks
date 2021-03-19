@@ -18,6 +18,9 @@ export default function speakersReducer(state, action) {
     case "unfavorite": {
       return { ...state, speakerList: updateFavorite(false) };
     }
+    case "incrementFavoriteClickCount": {
+      return { ...state, favoriteClickCount: state.favoriteClickCount + 1 };
+    }
     default:
       return state;
   }
