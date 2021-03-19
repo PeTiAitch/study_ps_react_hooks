@@ -55,13 +55,8 @@
       "sun": true
     },
     {
-      "id": 1725,
-      "firstName": "Brad",
-      "lastName": "Irby",
-      "favorite": false,
-      "bio": "Brad is an accomplished .NET software architect specializing in Domain Driven Design and Event Driven Architectures.",
-      "sat": true,
-      "sun": false
+      "{\"id\":1725,\"firstName\":\"Brad\",\"lastName\":\"Irby\",\"favorite\":true,\"bio\":\"Brad is an accomplished .NET software architect specializing in Domain Driven Design and Event Driven Architectures.\",\"sat\":true,\"sun\":false}": "",
+      "id": 1725
     },
     {
       "id": 18805,
