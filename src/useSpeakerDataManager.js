@@ -1,5 +1,4 @@
 import { useEffect, useReducer } from "react";
-import SpeakerData from "./SpeakerData";
 import speakersReducer from "./speakersReducer";
 import axios from "axios";
 
@@ -9,7 +8,7 @@ const useSpeakerDataManager = () => {
     {
       isLoading: true,
       speakerList: [],
-      favoriteClickCount: 10,
+      favoriteClickCount: 0,
     }
   );
 

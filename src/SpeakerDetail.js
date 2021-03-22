@@ -1,13 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import ImageToggleOnMouseOver from "./ImageToggleOnScroll";
-import useSpeakerDataManager from "./useSpeakerDataManager";
+import { GlobalContext } from "./GlobalState";
 
 const SpeakerDetail = React.memo(({ speakerRec, onHeartFavoriteHandler }) => {
   const { id, firstName, lastName, favorite, bio } = speakerRec;
-  const {
-    favoriteClickCount,
-    incrementFavoriteClickCount,
-  } = useSpeakerDataManager();
+  const { incrementFavoriteClickCount } = useContext(GlobalContext);
   console.log(`SpeakerDetail:${id} ${firstName} ${lastName} ${favorite}`);
 
   return (
@@ -30,7 +27,6 @@ const SpeakerDetail = React.memo(({ speakerRec, onHeartFavoriteHandler }) => {
           <span>
             {firstName} {lastName}
           </span>
-          <h5>{favoriteClickCount}</h5>
         </h4>
 
         <span>{bio}</span>

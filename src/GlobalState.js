@@ -8,12 +8,16 @@ export const GlobalProvider = ({ children }) => {
     speakerList,
     isLoading,
     toggleSpeakerFavorite,
+    favoriteClickCount,
+    incrementFavoriteClickCount,
   } = useSpeakerDataManager();
 
   const provider = {
     isLoading,
     speakerList,
     toggleSpeakerFavorite,
+    favoriteClickCount,
+    incrementFavoriteClickCount,
   };
 
   return (
