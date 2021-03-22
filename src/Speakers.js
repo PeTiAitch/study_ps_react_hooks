@@ -11,9 +11,13 @@ const Speakers = ({}) => {
   const [speakingSunday, setSpeakingSunday] = useState(true);
   const context = useContext(ConfigContext);
 
-  const { isLoading, speakerList, toggleSpeakerFavorite } = useContext(
-    GlobalContext
-  );
+  const {
+    isLoading,
+    speakerList,
+    toggleSpeakerFavorite,
+    hasErrored,
+    error,
+  } = useContext(GlobalContext);
 
   const handleChangeSaturday = () => {
     setSpeakingSaturday(!speakingSaturday);
@@ -44,6 +48,8 @@ const Speakers = ({}) => {
   }, [speakingSaturday, speakingSunday, speakerList]);
 
   const speakerListFiltered = isLoading ? [] : newSpeakerList;
+
+  if (hasErrored === true) return <div>Error: {error.message}</div>;
 
   if (isLoading) return <div>Loading...</div>;
 
