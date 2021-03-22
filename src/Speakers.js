@@ -1,53 +1,49 @@
-import React, { useState, useContext, useCallback, useMemo } from "react";
+import React, { useCallback, useContext, useMemo, useState } from "react";
 
-import { Header } from "../src/Header";
-import { Menu } from "../src/Menu";
+import { Header } from "./Header";
+import { Menu } from "./Menu";
 import SpeakerDetail from "./SpeakerDetail";
 import { ConfigContext } from "./App";
 import { GlobalContext } from "./GlobalState";
 
 const Speakers = ({}) => {
-  const context = useContext(ConfigContext);
-
   const [speakingSaturday, setSpeakingSaturday] = useState(true);
   const [speakingSunday, setSpeakingSunday] = useState(true);
+  const context = useContext(ConfigContext);
 
-  const { speakerList, isLoading, toggleSpeakerFavorite } = useContext(
+  const { isLoading, speakerList, toggleSpeakerFavorite } = useContext(
     GlobalContext
   );
 
   const handleChangeSaturday = () => {
     setSpeakingSaturday(!speakingSaturday);
   };
-
-  const newSpeakerList = useMemo(
-    () =>
-      speakerList
-        .filter(
-          ({ sat, sun }) => (speakingSaturday && sat) || (speakingSunday && sun)
-        )
-        .sort(function (a, b) {
-          if (a.firstName < b.firstName) {
-            return -1;
-          }
-          if (a.firstName > b.firstName) {
-            return 1;
-          }
-          return 0;
-        }),
-    [speakingSaturday, speakingSunday, speakerList]
-  );
-
-  const speakerListFiltered = isLoading ? [] : newSpeakerList;
-
   const handleChangeSunday = () => {
     setSpeakingSunday(!speakingSunday);
   };
-
   const heartFavoriteHandler = useCallback((e, speakerRec) => {
     e.preventDefault();
     toggleSpeakerFavorite(speakerRec);
   }, []);
+
+  const newSpeakerList = useMemo(() => {
+    const filtered = speakerList.filter((speaker) => {
+      const { sat, sun } = speaker;
+
+      return (speakingSaturday && sat) || (speakingSunday && sun);
+    });
+    return filtered.sort(function (a, b) {
+      if (a.firstName < b.firstName) {
+        return -1;
+      }
+      if (a.firstName > b.firstName) {
+        return 1;
+      }
+      return 0;
+    });
+  }, [speakingSaturday, speakingSunday, speakerList]);
+
+  const speakerListFiltered = isLoading ? [] : newSpeakerList;
 
   if (isLoading) return <div>Loading...</div>;
 

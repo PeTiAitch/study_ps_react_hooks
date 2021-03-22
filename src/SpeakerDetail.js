@@ -1,15 +1,17 @@
 import React, { useContext } from "react";
-import ImageToggleOnMouseOver from "./ImageToggleOnScroll";
-import { GlobalContext } from "./GlobalState";
+import ImageToggleOnScroll from "./ImageToggleOnScroll";
+import useSpeakerDataManager from "./useSpeakerDataManager";
+import { FavoriteClickCountContext } from "./FavoriteClickCountContext";
 
 const SpeakerDetail = React.memo(({ speakerRec, onHeartFavoriteHandler }) => {
-  const { id, firstName, lastName, favorite, bio } = speakerRec;
-  const { incrementFavoriteClickCount } = useContext(GlobalContext);
+  const { id, firstName, lastName, bio, favorite } = speakerRec;
   console.log(`SpeakerDetail:${id} ${firstName} ${lastName} ${favorite}`);
+
+  const { incrementFavoriteClickCount } = useContext(FavoriteClickCountContext);
 
   return (
     <div className="card col-4 cardmin">
-      <ImageToggleOnMouseOver
+      <ImageToggleOnScroll
         className="card-img-top"
         primaryImg={`/static/speakers/bw/Speaker-${id}.jpg`}
         secondaryImg={`/static/speakers/Speaker-${id}.jpg`}

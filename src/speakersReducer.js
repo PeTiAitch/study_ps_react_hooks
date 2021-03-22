@@ -1,13 +1,12 @@
-export default function speakersReducer(state, action) {
+const speakersReducer = (state, action) => {
   function updateFavorite(favoriteValue) {
-    return state.speakerList.map((item) => {
+    return state.speakerList.map((item, index) => {
       if (item.id === action.id) {
         return { ...item, favorite: favoriteValue };
       }
       return item;
     });
   }
-
   switch (action.type) {
     case "setSpeakerList": {
       return { ...state, speakerList: action.data, isLoading: false };
@@ -24,4 +23,5 @@ export default function speakersReducer(state, action) {
     default:
       return state;
   }
-}
+};
+export default speakersReducer;

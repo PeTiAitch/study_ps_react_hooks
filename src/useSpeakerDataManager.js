@@ -22,7 +22,7 @@ const useSpeakerDataManager = () => {
     const updateData = async () => {
       await axios.put(
         `http://localhost:8001/speakers/${speakerRec.id}`,
-        JSON.stringify(speakerRec)
+        speakerRec
       );
       dispatch({
         type: speakerRec.favorite ? "unfavorite" : "favorite",

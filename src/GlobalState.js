@@ -5,18 +5,18 @@ export const GlobalContext = React.createContext();
 
 export const GlobalProvider = ({ children }) => {
   const {
-    speakerList,
     isLoading,
-    toggleSpeakerFavorite,
+    speakerList,
     favoriteClickCount,
+    toggleSpeakerFavorite,
     incrementFavoriteClickCount,
   } = useSpeakerDataManager();
 
   const provider = {
     isLoading,
     speakerList,
-    toggleSpeakerFavorite,
     favoriteClickCount,
+    toggleSpeakerFavorite,
     incrementFavoriteClickCount,
   };
 
